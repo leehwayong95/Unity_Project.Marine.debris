@@ -13,7 +13,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject Mine;
     void Start()
     {
-        createPlane();
+        createMine();
     }
 
     // Update is called once per frame
@@ -22,19 +22,8 @@ public class Gamemanager : MonoBehaviour
         selectPosition();
     }
 
-    void createPlane()
+    void createMine()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                Vector3 point = new Vector3(i, 0, j);
-                Instantiate(Plane, point, Quaternion.identity);
-            }
-        }
-        
-        Instantiate(Cube, new Vector3(3, 0.5f, 3), Quaternion.identity);
-
         for(int i = 0; i < Random.Range(1,8);  i++)
             Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
     }
