@@ -543,3 +543,9 @@ MonoBehaviour:
   Plane: {fileID: 47124498341964253, guid: 4df6b38b489b08d47aaaa2a63e8e473d, type: 3}
   Cube: {fileID: 7689137381416235114, guid: b48c5cc423446d64faf08871d117e56e, type: 3}
   Mine: {fileID: 2070517456323808215, guid: a7a8cc7ac7fa0c5449000e4b3b905ed9, type: 3}
+  trash:
+  - {fileID: 823464858504338882, guid: 07fdf5dff980e1f4686f4c4196549938, type: 3}
+  - {fileID: 1249746850127158063, guid: bec349760116a754589e646e3f1f154e, type: 3}
+  - {fileID: 8220158233974498724, guid: 2ffe2fdfbb8e0184885a511b899518b2, type: 3}
+  - {fileID: 191629188589927972, guid: 8a8ecd5b3517f9d41bbce7e4ab1d9efb, type: 3}
+  - {fileID: 191629188589927972, guid: f52e18fa1aeeb9847977d72485dcd21d, type: 3}

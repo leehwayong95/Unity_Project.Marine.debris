@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -11,9 +12,11 @@ public class Gamemanager : MonoBehaviour
     public GameObject Plane;
     public GameObject Cube;
     public GameObject Mine;
+    public GameObject[] trash = new GameObject[5];
     void Start()
     {
         createMine();
+        createTrashRand();
     }
 
     // Update is called once per frame
@@ -27,7 +30,11 @@ public class Gamemanager : MonoBehaviour
         for(int i = 0; i < Random.Range(1,8);  i++)
             Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
     }
-
+    public void createTrashRand()
+    {
+        for (int i = 0; i < 100; i++)
+            Instantiate(trash[Random.Range(0,4)], new Vector3(Random.Range(0f, 9f), 0.1f, Random.Range(0f, 9f)), Quaternion.identity);
+    }
     public void selectPosition()
     {
         if(Input.GetMouseButtonDown(0))
