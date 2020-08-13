@@ -13,6 +13,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject Cube;
     public GameObject Mine;
     public GameObject[] trash = new GameObject[5];
+    public static int mineCount;
     void Start()
     {
         createMine();
@@ -27,7 +28,7 @@ public class Gamemanager : MonoBehaviour
 
     void createMine()
     {
-        for(int i = 0; i < Random.Range(1,8);  i++)
+        for(int i = 0; i < (mineCount = Random.Range(1,8));  i++)
             Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
     }
     public void createTrashRand()
