@@ -16,6 +16,7 @@ public class Gamemanager : MonoBehaviour
     public static int mineCount;
     void Start()
     {
+        createPlane();
         createMine();
         createTrashRand();
     }
@@ -30,6 +31,17 @@ public class Gamemanager : MonoBehaviour
     {
         for(int i = 0; i < (mineCount = Random.Range(1,8));  i++)
             Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
+    }
+
+    void createPlane()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                Instantiate(Plane,new Vector3( i, 0, j), Quaternion.identity);
+            }
+        }
     }
     public void createTrashRand()
     {
