@@ -40,6 +40,7 @@ public class Gamemanager : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            //if()UI충돌이 아닐 때 조건 추가
             movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
             
             //레이저 쏘기 1000거리만큼
@@ -50,5 +51,10 @@ public class Gamemanager : MonoBehaviour
             Vector3 target = new Vector3(hit.transform.position.x, 0.5f, hit.transform.position.z);
             player.moveControl(target);
         }
+    }
+
+    public static void mineCounter()
+    {
+        Debug.Log("Mine Count : " + mineCount);
     }
 }
