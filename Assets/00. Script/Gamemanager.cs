@@ -60,7 +60,7 @@ public class Gamemanager : MonoBehaviour
             RaycastHit hit;
             Physics.Raycast(ray, out hit, 1000f);
                 Debug.Log(hit.transform.position);
-            Vector3 target = new Vector3(hit.transform.position.x, 0.5f, hit.transform.position.z);
+            Vector3 target = new Vector3(hit.transform.position.x, 0.25f, hit.transform.position.z);
             player.moveControl(target);
         }
     }

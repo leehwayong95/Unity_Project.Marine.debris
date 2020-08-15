@@ -28,7 +28,7 @@ public class movePlayer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Mine"))
-            Debug.Log("pushed mine");
+            Debug.Log("pushed mine");//마인 밟을때 처리
     }
 
     public void moveControl(Vector3 target)
