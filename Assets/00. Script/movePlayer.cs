@@ -29,6 +29,12 @@ public class movePlayer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Mine"))
             Debug.Log("pushed mine");//마인 밟을때 처리
+        else if(other.gameObject.CompareTag("Button"))
+        {
+            Debug.Log("pushed button");
+            tileControl tile = other.gameObject.GetComponent<tileControl>();
+            tile.setPushed();
+        }
     }
 
     public void moveControl(Vector3 target)
@@ -42,5 +48,4 @@ public class movePlayer : MonoBehaviour
         playerTransform.position = Vector3.Lerp(playerTransform.position, this.target, 0.1f);
         yield return null;
     }    
-
 }
