@@ -16,7 +16,7 @@ public class Gamemanager : MonoBehaviour
     public static int mineCount;
     void Start()
     {
-        createPlane();
+        //createPlane();
         createMine();
         createTrashRand();
     }
@@ -43,7 +43,7 @@ public class Gamemanager : MonoBehaviour
             }
         }
     }
-    public void createTrashRand()
+    void createTrashRand()
     {
         for (int i = 0; i < 100; i++)
             Instantiate(trash[Random.Range(0,4)], new Vector3(Random.Range(0f, 9f), 0.1f, Random.Range(0f, 9f)), Quaternion.identity);
@@ -54,19 +54,31 @@ public class Gamemanager : MonoBehaviour
         {
             //if()UI충돌이 아닐 때 조건 추가
             movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
-            
-            //레이저 쏘기 1000거리만큼
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit, 1000f);
-                Debug.Log(hit.transform.position);
-            Vector3 target = new Vector3(hit.transform.position.x, 0.25f, hit.transform.position.z);
-            player.moveControl(target);
+            //Raycast를 통한 좌표 구해 moveControl에 전달
+            player.moveControl(pointGameobject());
+        }
+        else if(Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Click Right Button");
         }
     }
 
-    public static void mineCounter()
+    Vector3 pointGameobject() //Raycast 함수화
     {
-        Debug.Log("Mine Count : " + mineCount);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Vector3 target;
+
+        Physics.Raycast(ray, out hit, 1000f);
+        Debug.Log(hit.transform.position);
+        target = new Vector3(hit.transform.position.x, 0.25f, hit.transform.position.z);
+        //y축 0.25f는 cube가 띄워져있는 높이
+
+        return target;
+    }
+
+    public static void mineCounter() //마인 갯수 호출가능한지 테스트 static method
+    {
+        Debug.Log("Mine Count : " + Gamemanager.mineCount);
     }
 }
