@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater_Desktop
-  m_Shader: {fileID: 4800000, guid: 4bcc0b68579a5c740ad31644411ffb54, type: 3}
+  m_Shader: {fileID: 4800000, guid: 644d4419f6d30214892dd65158332ba7, type: 3}
   m_ShaderKeywords: _LIGHTING_ON _SECONDARYFOAMALWAYSVISIBLE_ON _SECONDARY_WAVES_ON
     _USEINTERSECTIONFOAM_ON _WORLDSPACETILING_ON
   m_LightmapFlags: 0
@@ -68,14 +68,14 @@ Material:
     - _ENABLE_GRADIENT: 0
     - _ENABLE_SHADOWS: 0
     - _ENABLE_VC: 0
-    - _EdgeFade: 0.2448298
+    - _EdgeFade: 0.37
     - _FoamDistortion: 0.45
-    - _FoamOpacity: 0.1
+    - _FoamOpacity: -0.397
     - _FoamSize: 0
     - _FoamSpeed: 0.1
     - _FoamTiling: 0.15
     - _Fresnelexponent: 47.21
-    - _Glossiness: 0.804
+    - _Glossiness: 0.19
     - _Gradient: 0
     - _HighlightPanning: 0
     - _IntersectionDistortion: 0.1
@@ -84,7 +84,7 @@ Material:
     - _MACRO_WAVES: 0
     - _MacroBlendDistance: 1000
     - _MaskClipValue: 0.5
-    - _Metallicness: 0.1
+    - _Metallicness: 0.242
     - _NORMAL_MAP: 0
     - _NormalStrength: 0.341
     - _NormalTiling: 0.39999992
@@ -94,7 +94,7 @@ Material:
     - _Reflection: 0
     - _ReflectionFresnel: 2.43
     - _ReflectionRefraction: 0.014
-    - _ReflectionStrength: 0
+    - _ReflectionStrength: 0.583
     - _RefractionAmount: 0.0247
     - _RimDistance: 1.91
     - _RimDistortion: 0.139
@@ -115,7 +115,7 @@ Material:
     - _Unlit: 0
     - _UseIntersectionFoam: 1
     - _UseIntersectionHighlight: 1
-    - _WaveFoam: 0
+    - _WaveFoam: 0.011
     - _WaveHeight: 0.011
     - _WaveSize: 0.1
     - _Wavefoam: 1
