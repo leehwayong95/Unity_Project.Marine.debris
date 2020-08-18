@@ -50,17 +50,20 @@ public class Gamemanager : MonoBehaviour
     }
     public void selectPosition()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            //if()UI충돌이 아닐 때 조건 추가, player find 부분 삭제 고민중..
-            movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
-            //Raycast를 통한 좌표 구해 moveControl에 전달
-            player.moveControl(pointGameobject());
-        }
-        else if(Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Click Right Button");
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                //if()UI충돌이 아닐 때 조건 추가, player find 부분 삭제 고민중..
+                movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
+                //Raycast를 통한 좌표 구해 moveControl에 전달
+                player.moveControl(pointGameobject());
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Click Right Button");
+            }
+        }   
     }
 
     Vector3 pointGameobject() //Raycast 함수화

@@ -50,6 +50,5 @@ public class movePlayer : MonoBehaviour
 
     public void highlightPlayer()
     {
-
     }
 }
