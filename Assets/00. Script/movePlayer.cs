@@ -6,7 +6,7 @@ public class movePlayer : MonoBehaviour
 {
     Transform playerTransform;
     bool moveFlag = false;
-    Vector3 target;
+    Vector3 targetPosition;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class movePlayer : MonoBehaviour
         if (moveFlag)
         {
             StartCoroutine(move());
-            if (playerTransform.position == target)
+            if (playerTransform.position == targetPosition)
                 moveFlag = false;
         }
         else
@@ -40,12 +40,12 @@ public class movePlayer : MonoBehaviour
     public void moveControl(Vector3 target)
     {
         moveFlag = true;
-        this.target = target;
+        this.targetPosition = target;
     }
 
     IEnumerator move()
     {
-        playerTransform.position = Vector3.Lerp(playerTransform.position, this.target, 0.1f);
+        playerTransform.position = Vector3.Lerp(playerTransform.position, this.targetPosition, 0.1f);
         yield return null;
     }    
 }

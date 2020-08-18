@@ -24,20 +24,15 @@ public class tileControl : MonoBehaviour
         }
     }
 
-    public void setPushed()
-    {
-        pushed = true;
-    }
-
-    public void setFlag()
-    {
-
-    }
-
     IEnumerator editButtonscale()
     {
         Vector3 targetScale = new Vector3(0.3f, 0.3f, 0.002f);
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, 0.1f);
         yield return null;
+    }
+
+    public void setPushed()
+    {
+        pushed = true;
     }
 }
