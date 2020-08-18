@@ -7,6 +7,7 @@ using UnityEngine;
 public class tileControl : MonoBehaviour
 {
     public bool pushed = false;
+    public int hint; //-1 : mine , 0 : load , 1~ :hint
 
     void Start()
     {

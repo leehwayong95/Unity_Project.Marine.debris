@@ -203,12 +203,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2061097233}
-        m_MethodName: mineCounter
+      - m_Target: {fileID: 963194229}
+        m_MethodName: selectCameramode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -427,6 +438,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0028155874
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0028155874
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071012
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553541827795455252, guid: 63896b61e00d6314899f71dc9ae5f0cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0.45600003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63896b61e00d6314899f71dc9ae5f0cc, type: 3}

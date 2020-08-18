@@ -37,15 +37,19 @@ public class movePlayer : MonoBehaviour
         }
     }
 
+    IEnumerator move()
+    {
+        playerTransform.position = Vector3.Lerp(playerTransform.position, this.targetPosition, 0.1f);
+        yield return null;
+    }
     public void moveControl(Vector3 target)
     {
         moveFlag = true;
         this.targetPosition = target;
     }
 
-    IEnumerator move()
+    public void highlightPlayer()
     {
-        playerTransform.position = Vector3.Lerp(playerTransform.position, this.targetPosition, 0.1f);
-        yield return null;
-    }    
+
+    }
 }
