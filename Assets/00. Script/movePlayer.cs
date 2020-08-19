@@ -5,8 +5,8 @@ using UnityEngine;
 public class movePlayer : MonoBehaviour
 {
     Transform playerTransform;
-    bool moveFlag = false;
-    Vector3 targetPosition;
+    static bool moveFlag = false;
+    static Vector3 targetPosition;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class movePlayer : MonoBehaviour
 
     void Update()
     {
-        if (moveFlag)
+        if (moveFlag && !cameraMove.cameraTopViewMode)
         {
             StartCoroutine(move());
             if (playerTransform.position == targetPosition)
@@ -39,13 +39,13 @@ public class movePlayer : MonoBehaviour
 
     IEnumerator move()
     {
-        playerTransform.position = Vector3.Lerp(playerTransform.position, this.targetPosition, 0.1f);
+        playerTransform.position = Vector3.Lerp(playerTransform.position, targetPosition, 0.1f);
         yield return null;
     }
-    public void moveControl(Vector3 target)
+    public static void moveControl(Vector3 target)
     {
         moveFlag = true;
-        this.targetPosition = target;
+        targetPosition = target;
     }
 
     public void highlightPlayer()

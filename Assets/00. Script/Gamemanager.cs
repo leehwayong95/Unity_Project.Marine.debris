@@ -52,12 +52,12 @@ public class Gamemanager : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode)
             {
                 //if()UI충돌이 아닐 때 조건 추가, player find 부분 삭제 고민중..
-                movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
+                //movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
                 //Raycast를 통한 좌표 구해 moveControl에 전달
-                player.moveControl(pointGameobject());
+                movePlayer.moveControl(pointGameobject());
             }
             else if (Input.GetMouseButtonDown(1))
             {

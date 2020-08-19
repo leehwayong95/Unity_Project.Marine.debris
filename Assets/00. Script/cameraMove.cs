@@ -5,7 +5,7 @@ using UnityEngine;
 public class cameraMove : MonoBehaviour
 {
     public Transform playerTransform;
-    bool cameraMode = false; //false : playerfollow, true : topView
+    public static bool cameraTopViewMode = false; //false : playerfollow, true : topView
     float middle_x = 4.5f;
     float middle_z = 4.5f;
     float topView_h = 35f;
@@ -17,7 +17,7 @@ public class cameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cameraMode)
+        if(cameraTopViewMode)
         {
             StopAllCoroutines();
             StartCoroutine(topView());
@@ -55,6 +55,6 @@ public class cameraMove : MonoBehaviour
     }
     public void selectCameramode()
     {
-        cameraMode = !cameraMode;
+        cameraTopViewMode = !cameraTopViewMode;
     }
 }
