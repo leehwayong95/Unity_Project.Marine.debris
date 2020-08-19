@@ -16,7 +16,7 @@ public class Gamemanager : MonoBehaviour
     public static int mineCount;
     void Start()
     {
-        //createPlane();
+        createPlane();
         createMine();
         createTrashRand();
     }
