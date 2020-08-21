@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
-using System.IO.Ports;
+//using System.IO.Ports; Android Build error
 using System.Runtime.CompilerServices;
 using UnityEngine;
 

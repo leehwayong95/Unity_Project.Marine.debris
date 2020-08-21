@@ -1,7 +1,8 @@
 ﻿using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-
+using System.Dynamic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +15,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject Mine;
     public GameObject[] trash = new GameObject[5];
     public static int mineCount;
+    static bool pauseFlag = false;
     void Start()
     {
         createPlane();
@@ -52,7 +54,7 @@ public class Gamemanager : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode)
+            if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode && !pauseFlag)
             {
                 //if()UI충돌이 아닐 때 조건 추가, player find 부분 삭제 고민중..
                 //movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
@@ -83,5 +85,10 @@ public class Gamemanager : MonoBehaviour
     public static void mineCounter() //마인 갯수 호출가능한지 테스트 static method
     {
         Debug.Log("Mine Count : " + Gamemanager.mineCount);
+    }
+
+    public static void setPause(bool flag)
+    {
+        pauseFlag = flag;
     }
 }
