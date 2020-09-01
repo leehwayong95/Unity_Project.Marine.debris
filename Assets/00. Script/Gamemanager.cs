@@ -9,15 +9,22 @@ using UnityEngine.EventSystems;
 public class Gamemanager : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
+    public GameObject Mine;
 
     public GameObject Plane;
     public GameObject Cube;
-    public GameObject Mine;
     public GameObject[] trash = new GameObject[5];
+    public Material[] hintMaterial = new Material[9];
     public static int mineCount;
     static bool pauseFlag = false;
-    void Start()
+
+    public static int[,] mine_arr = new int [10,10];//mine배열
+
+
+    void Awake()
     {
+
         createPlane();
         createMine();
         createTrashRand();
@@ -29,10 +36,26 @@ public class Gamemanager : MonoBehaviour
         selectPosition();
     }
 
-    void createMine()
+    void createMine() //GM이 가지고있는 mine_arr에 마인 구성
     {
-        for(int i = 0; i < (mineCount = Random.Range(1,8));  i++)
-            Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
+        //test
+        //for(int i = 0; i < (mineCount = Random.Range(1,8));  i++)
+        //Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
+        for (int i = 0; i< 10; i++)
+        {
+            for(int j = 0; j<10; j++)
+            {
+                int minepercent = Random.Range(0, 100);
+                if (minepercent < 30)
+                {
+                    mine_arr[i, j] = 9;
+                    mineCount++;
+                }
+                else
+                    mine_arr[i, j] = 0;
+            }
+        }
+
     }
 
     void createPlane()
@@ -82,7 +105,7 @@ public class Gamemanager : MonoBehaviour
         return target;
     }
 
-    public static void mineCounter() //마인 갯수 호출가능한지 테스트 static method
+    public void mineCounter() //마인 갯수 호출가능한지 테스트 static method
     {
         Debug.Log("Mine Count : " + Gamemanager.mineCount);
     }
@@ -90,5 +113,10 @@ public class Gamemanager : MonoBehaviour
     public static void setPause(bool flag)
     {
         pauseFlag = flag;
+    }
+
+    public Material getHintMaterial(int hint)
+    {
+        return hintMaterial[hint];
     }
 }
