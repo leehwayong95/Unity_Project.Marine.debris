@@ -7,6 +7,7 @@ TagManager:
   - Mine
   - Tile
   - Button
+  - GM
   layers:
   - Default
   - TransparentFX

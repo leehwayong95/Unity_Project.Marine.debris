@@ -18,10 +18,7 @@ public class tileControl : MonoBehaviour
         canvas = GetComponentInChildren<Canvas>();
         //자신이 마인인지 아닌지 받아오는 부분
         hint = getHint();
-        if (hint == 9)
-            Debug.Log("i'm Mine");
-        else
-            Debug.Log(hint);
+        showHint(hint);
     }
 
     void Update()
@@ -44,7 +41,7 @@ public class tileControl : MonoBehaviour
         yield return null;
     }
 
-    int getHint() //HINT 검사부분 고쳐야합니다. 예외처리가 안됩니다.
+    int getHint()
     {
         int nearbyMine = 0;
         //mine일때 hint에 9리턴
@@ -54,9 +51,13 @@ public class tileControl : MonoBehaviour
         {
             for (int i = ((int)transform.position.x) - 1; i <= ((int)transform.position.x) + 1; i++)
             {
-                for (int j = ((int)transform.position.z - 1); i <= ((int)transform.position.z) + 1; j++)
+                if (i < 0 || i > 9)
+                    continue;
+                for (int j = ((int)transform.position.z - 1); j <= ((int)transform.position.z) + 1; j++)
                 {
-                    if (Gamemanager.mine_arr[i, j] == 9)
+                    if (j < 0 || j > 9)
+                        continue;
+                    else if (Gamemanager.mine_arr[i, j] == 9)
                         nearbyMine++;
                 }
             }
@@ -64,13 +65,12 @@ public class tileControl : MonoBehaviour
         }   
     }
 
-    void showHint()//마인 디버깅용 메서드 무시하셔도 됩니다.
+    void showHint(int num)//마인 디버깅용 메서드 무시하셔도 됩니다.
     {
         Gamemanager gm = GameObject.FindGameObjectWithTag("GM").GetComponent<Gamemanager>();
-        Material plane = canvas.GetComponentInChildren<Material>();
+        Plane plane = canvas.GetComponentInChildren<Plane>();
 
-        plane = gm.getHintMaterial(hint-1);
-
+        //plane에 메테리얼 적용
     }
 
     public void setPushed()

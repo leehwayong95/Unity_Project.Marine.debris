@@ -2871,7 +2871,7 @@ GameObject:
   - component: {fileID: 2061097233}
   m_Layer: 2
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2911,7 +2911,7 @@ MonoBehaviour:
   - {fileID: 8220158233974498724, guid: 2ffe2fdfbb8e0184885a511b899518b2, type: 3}
   - {fileID: 191629188589927972, guid: 8a8ecd5b3517f9d41bbce7e4ab1d9efb, type: 3}
   - {fileID: 191629188589927972, guid: f52e18fa1aeeb9847977d72485dcd21d, type: 3}
-  hint:
+  hintMaterial:
   - {fileID: 2100000, guid: f293689bfa233e04fbecd561da879fe7, type: 2}
   - {fileID: 2100000, guid: 3d1b35b6b4f12b143be3960e301dd0d7, type: 2}
   - {fileID: 2100000, guid: fd00dd79c7d34eb4592bc3ba4543c5ab, type: 2}
