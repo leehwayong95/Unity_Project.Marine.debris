@@ -33,7 +33,7 @@ public class movePlayer : MonoBehaviour
         {
             Debug.Log("pushed button");
             tileControl tile = other.gameObject.GetComponent<tileControl>();
-            tile.setPushed();
+            //tile.setPushed();
         }
     }
 

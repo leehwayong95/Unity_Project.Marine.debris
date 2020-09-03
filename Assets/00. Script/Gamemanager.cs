@@ -20,27 +20,28 @@ public class Gamemanager : MonoBehaviour
     static bool pauseFlag = false;
 
     public static int[,] mine_arr = new int [10,10];//mine배열
-
+    public static int[,] pushed_arr = new int[10,10];//클릭한 배열
 
     void Awake()
     {
-
         createPlane();
         createMine();
         createTrashRand();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        selectPosition();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode && !pauseFlag)
+            {
+                clickMapping(selectPosition(pointGameobject()));
+            }
+        }
     }
 
     void createMine() //GM이 가지고있는 mine_arr에 마인 구성
     {
-        //test
-        //for(int i = 0; i < (mineCount = Random.Range(1,8));  i++)
-        //Instantiate(Mine, new Vector3(Random.Range(0, 9), -2, Random.Range(0, 9)),Quaternion.identity);
         for (int i = 0; i< 10; i++)
         {
             for(int j = 0; j<10; j++)
@@ -55,7 +56,6 @@ public class Gamemanager : MonoBehaviour
                     mine_arr[i, j] = 0;
             }
         }
-
     }
 
     void createPlane()
@@ -68,27 +68,11 @@ public class Gamemanager : MonoBehaviour
             }
         }
     }
+
     void createTrashRand()
     {
         for (int i = 0; i < 100; i++)
             Instantiate(trash[Random.Range(0,4)], new Vector3(Random.Range(0f, 9f), 0.1f, Random.Range(0f, 9f)), Quaternion.identity);
-    }
-    public void selectPosition()
-    {
-        if (!EventSystem.current.IsPointerOverGameObject())
-        {
-            if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode && !pauseFlag)
-            {
-                //if()UI충돌이 아닐 때 조건 추가, player find 부분 삭제 고민중..
-                //movePlayer player = GameObject.FindGameObjectWithTag("Player").GetComponent<movePlayer>();
-                //Raycast를 통한 좌표 구해 moveControl에 전달
-                movePlayer.moveControl(pointGameobject());
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                Debug.Log("Click Right Button");
-            }
-        }   
     }
 
     Vector3 pointGameobject() //Raycast 함수화
@@ -101,7 +85,18 @@ public class Gamemanager : MonoBehaviour
         Debug.Log(hit.transform.position);
         target = new Vector3(hit.transform.position.x, 0.25f, hit.transform.position.z);
         //y축 0.25f는 cube가 띄워져있는 높이
+        return target;
+    }
 
+    void clickMapping(Vector3 clickitem)
+    {
+        pushed_arr[(int)clickitem.x, (int)clickitem.z] = 1;
+    }
+
+    Vector3 selectPosition(Vector3 target)
+    {
+        //Raycast를 통한 좌표 전달받아 moveControl에 전달
+        movePlayer.moveControl(target);
         return target;
     }
 

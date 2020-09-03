@@ -18,18 +18,18 @@ public class tileControl : MonoBehaviour
         canvas = GetComponentInChildren<Canvas>();
         //자신이 마인인지 아닌지 받아오는 부분
         hint = getHint();
-        showHint(hint);
     }
 
     void Update()
     {
-        //canvas.transform.LookAt(Camera.main.transform);//캔버스가 커브드모니터처럼 휘어버림.. 한번더 생각해볼것
-        if(pushed)
+        Debug.Log(Gamemanager.pushed_arr[(int)transform.position.x, (int)transform.position.z]);
+        if (Gamemanager.pushed_arr[(int)transform.position.x,(int)transform.position.z] == 1)
         {
             if (transform.localScale.z == 0.002f)
                 StopCoroutine(editButtonscale());
             else
                 StartCoroutine(editButtonscale());
+            showHint(hint);
         }
     }
 
@@ -65,14 +65,13 @@ public class tileControl : MonoBehaviour
         }   
     }
 
-    void showHint(int num)//마인 디버깅용 메서드 무시하셔도 됩니다.
+    void showHint(int num)
     {
         Gamemanager gm = GameObject.FindGameObjectWithTag("GM").GetComponent<Gamemanager>();
         MeshRenderer palnematerial = transform.GetChild(0).GetComponent<MeshRenderer>();
 
-        palnematerial.material = gm.hintMaterial[num - 1];
-
-        //plane에 메테리얼 적용
+        if(num != 0)
+            palnematerial.material = gm.hintMaterial[num - 1];
     }
 
     public void setPushed()
