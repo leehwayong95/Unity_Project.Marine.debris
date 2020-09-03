@@ -46,7 +46,7 @@ public class Gamemanager : MonoBehaviour
             for(int j = 0; j<10; j++)
             {
                 int minepercent = Random.Range(0, 100);
-                if (minepercent < 30)
+                if (minepercent < 10)
                 {
                     mine_arr[i, j] = 9;
                     mineCount++;
