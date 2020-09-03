@@ -68,7 +68,9 @@ public class tileControl : MonoBehaviour
     void showHint(int num)//마인 디버깅용 메서드 무시하셔도 됩니다.
     {
         Gamemanager gm = GameObject.FindGameObjectWithTag("GM").GetComponent<Gamemanager>();
-        Plane plane = canvas.GetComponentInChildren<Plane>();
+        MeshRenderer palnematerial = transform.GetChild(0).GetComponent<MeshRenderer>();
+
+        palnematerial.material = gm.hintMaterial[num - 1];
 
         //plane에 메테리얼 적용
     }
