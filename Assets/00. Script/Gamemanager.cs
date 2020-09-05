@@ -20,7 +20,7 @@ public class Gamemanager : MonoBehaviour
     static bool pauseFlag = false;
 
     public static int[,] mine_arr = new int [10,10];//mine배열
-    public static int[,] pushed_arr = new int[10,10];//클릭한 배열
+    public static int[,] openTile_arr = new int[10,10];//클릭한 배열
 
     void Awake()
     {
@@ -35,7 +35,7 @@ public class Gamemanager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode && !pauseFlag)
             {
-                clickMapping(selectPosition(pointGameobject()));
+                openTilemapping(selectPosition(pointGameobject()));
             }
         }
     }
@@ -88,16 +88,35 @@ public class Gamemanager : MonoBehaviour
         return target;
     }
 
-    void clickMapping(Vector3 clickitem)
+    void openTilemapping(Vector3 clickitem)
     {
-        pushed_arr[(int)clickitem.x, (int)clickitem.z] = 1;
+        openTile_arr[(int)clickitem.x, (int)clickitem.z] = 1;
     }
 
     Vector3 selectPosition(Vector3 target)
     {
         //Raycast를 통한 좌표 전달받아 moveControl에 전달
-        movePlayer.moveControl(target);
+
+        if (getpushedMapping((int)target.x, (int)target.z) == 0)
+            movePlayer.moveControl(target);
+        else if (getpushedMapping((int)target.x, (int)target.z) == 1)
+            Debug.Log("이부분은 안연 타일 열때 조건 부분");
+        else
+            Debug.Log("이부분은 거리2이상 closetile 개방 처리부분");
         return target;
+    }
+
+    public int getpushedMapping(int x, int z)
+    {
+        //플레이어의 무빙 검사
+        //0 : opentile의 이동
+        //1 : closetile의 개방
+        //2 : 거리2이상의 closetile 개방 (금지 처리)
+
+        if (openTile_arr[x, z] == 0)
+            return 1;
+        else
+            return 0;
     }
 
     public void mineCounter() //마인 갯수 호출가능한지 테스트 static method

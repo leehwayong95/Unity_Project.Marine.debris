@@ -22,8 +22,7 @@ public class tileControl : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Gamemanager.pushed_arr[(int)transform.position.x, (int)transform.position.z]);
-        if (Gamemanager.pushed_arr[(int)transform.position.x,(int)transform.position.z] == 1)
+        if (Gamemanager.openTile_arr[(int)transform.position.x,(int)transform.position.z] == 1)
         {
             if (transform.localScale.z == 0.002f)
                 StopCoroutine(editButtonscale());
