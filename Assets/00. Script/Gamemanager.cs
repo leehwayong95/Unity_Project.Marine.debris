@@ -96,11 +96,10 @@ public class Gamemanager : MonoBehaviour
     Vector3 selectPosition(Vector3 target)
     {
         //Raycast를 통한 좌표 전달받아 moveControl에 전달
-
         if (getpushedMapping((int)target.x, (int)target.z) == 0)
-            movePlayer.moveControl(target);
-        else if (getpushedMapping((int)target.x, (int)target.z) == 1)
             Debug.Log("이부분은 안연 타일 열때 조건 부분");
+        else if(getpushedMapping((int)target.x, (int)target.z) == 1)
+            movePlayer.moveControl(target);
         else
             Debug.Log("이부분은 거리2이상 closetile 개방 처리부분");
         return target;
@@ -109,14 +108,14 @@ public class Gamemanager : MonoBehaviour
     public int getpushedMapping(int x, int z)
     {
         //플레이어의 무빙 검사
-        //0 : opentile의 이동
-        //1 : closetile의 개방
+        //0 : closetile의 개방
+        //1 : opentile의 이동
         //2 : 거리2이상의 closetile 개방 (금지 처리)
 
         if (openTile_arr[x, z] == 0)
-            return 1;
-        else
             return 0;
+        else
+            return 1;
     }
 
     public void mineCounter() //마인 갯수 호출가능한지 테스트 static method
