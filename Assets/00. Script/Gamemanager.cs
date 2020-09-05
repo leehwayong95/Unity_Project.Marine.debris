@@ -27,6 +27,9 @@ public class Gamemanager : MonoBehaviour
         createPlane();
         createMine();
         createTrashRand();
+        //testing
+        openTile_arr[0, 0] = 1;
+        //testing
     }
 
     void Update()
@@ -90,18 +93,23 @@ public class Gamemanager : MonoBehaviour
 
     void openTilemapping(Vector3 clickitem)
     {
-        openTile_arr[(int)clickitem.x, (int)clickitem.z] = 1;
+        if (getpushedMapping((int)clickitem.x, (int)clickitem.z) == 0)
+        {
+
+        }
+        else if(getpushedMapping((int)clickitem.x, (int)clickitem.z) == 1)
+            openTile_arr[(int)clickitem.x, (int)clickitem.z] = 1;
     }
 
     Vector3 selectPosition(Vector3 target)
     {
         //Raycast를 통한 좌표 전달받아 moveControl에 전달
         if (getpushedMapping((int)target.x, (int)target.z) == 0)
-            Debug.Log("이부분은 안연 타일 열때 조건 부분");
-        else if(getpushedMapping((int)target.x, (int)target.z) == 1)
             movePlayer.moveControl(target);
+        else if(getpushedMapping((int)target.x, (int)target.z) == 1)
+            Debug.Log("이부분은 거리1이내 closetile 열때 조건 부분");
         else
-            Debug.Log("이부분은 거리2이상 closetile 개방 처리부분");
+            Debug.Log("이부분은 거리2이상 closetile 개방요청 처리부분");
         return target;
     }
 
@@ -111,11 +119,27 @@ public class Gamemanager : MonoBehaviour
         //0 : closetile의 개방
         //1 : opentile의 이동
         //2 : 거리2이상의 closetile 개방 (금지 처리)
-
-        if (openTile_arr[x, z] == 0)
+        if (openTile_arr[x, z] == 1)
             return 0;
+        else if(openTile_arr[x,z] == 0)
+        {
+            //Debug.Log("here");
+            for(int i=x-1 ; i<=x+1 ; i++)
+            {
+                if (i < 0 || i > 9)
+                    continue;
+                for (int j=z-1; j<=z+1; j++)
+                {
+                    if (j < 0 || j > 9)
+                        continue;
+                    else if (openTile_arr[i, j] == 1)
+                        return 1;
+                }
+            }
+            return 2;
+        }
         else
-            return 1;
+            return 2;
     }
 
     public void mineCounter() //마인 갯수 호출가능한지 테스트 static method
