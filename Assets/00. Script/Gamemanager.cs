@@ -28,7 +28,17 @@ public class Gamemanager : MonoBehaviour
         createMine();
         createTrashRand();
         //testing
-        openTile_arr[0, 0] = 1;
+        openTile_arr[3, 3] = 1;
+        openTile_arr[3, 4] = 1;
+        openTile_arr[3, 5] = 1;
+        
+        openTile_arr[4, 3] = 1;
+        openTile_arr[4, 4] = 1;
+        openTile_arr[4, 5] = 1;
+        
+        openTile_arr[5, 3] = 1;
+        openTile_arr[5, 4] = 1;
+        openTile_arr[5, 5] = 1;
         //testing
     }
 
@@ -39,6 +49,9 @@ public class Gamemanager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !cameraMove.cameraTopViewMode && !pauseFlag)
             {
                 openTilemapping(selectPosition(pointGameobject()));
+                //pointGameobject : raycast 이용함수. 타깃 좌표 반환
+                //selectPosition : 반환받은 것을 getpushedMapping으로 검사
+                //openTilemapping : getpushedMapping으로 검사하고, 안열은거면 pushed_arr에 반환
             }
         }
     }
@@ -49,11 +62,14 @@ public class Gamemanager : MonoBehaviour
         {
             for(int j = 0; j<10; j++)
             {
+                //플레이어 초기 Tile을 위해 Mine생성 초기화
+                if ((i == 3 || i == 4 || i == 5) && (j == 3 || j == 4 || j == 5)) 
+                    continue;
                 int minepercent = Random.Range(0, 100);
                 if (minepercent < 10)
                 {
                     mine_arr[i, j] = 9;
-                    mineCount++;
+                    mineCount++;//mineCount : 마인 갯수 세기
                 }
                 else
                     mine_arr[i, j] = 0;
@@ -93,52 +109,47 @@ public class Gamemanager : MonoBehaviour
 
     void openTilemapping(Vector3 clickitem)
     {
-        if (getpushedMapping((int)clickitem.x, (int)clickitem.z) == 0)
-        {
-
-        }
-        else if(getpushedMapping((int)clickitem.x, (int)clickitem.z) == 1)
+        if(getpushedMapping((int)clickitem.x, (int)clickitem.z) == 1)
             openTile_arr[(int)clickitem.x, (int)clickitem.z] = 1;
     }
 
     Vector3 selectPosition(Vector3 target)
     {
         //Raycast를 통한 좌표 전달받아 moveControl에 전달
-        if (getpushedMapping((int)target.x, (int)target.z) == 0)
-            movePlayer.moveControl(target);
-        else if(getpushedMapping((int)target.x, (int)target.z) == 1)
-            Debug.Log("이부분은 거리1이내 closetile 열때 조건 부분");
+        if (getpushedMapping((int)target.x, (int)target.z) == 0)//getpushedMapping 0반환시
+            movePlayer.moveControl(target);//이미 누른 타일이라서 이동
+        else if(getpushedMapping((int)target.x, (int)target.z) == 1)//안누른타일..
+            Debug.Log("이부분은 거리1이내 closetile 열때 조건 부분");//이부분에 BFS..
         else
-            Debug.Log("이부분은 거리2이상 closetile 개방요청 처리부분");
+            Debug.Log("이부분은 거리2이상 closetile 개방요청 처리부분");//2 : 움직이기불가
         return target;
     }
 
     public int getpushedMapping(int x, int z)
     {
-        //플레이어의 무빙 검사
+        //플레이어의 무빙 검사 메서드
         //0 : closetile의 개방
         //1 : opentile의 이동
         //2 : 거리2이상의 closetile 개방 (금지 처리)
-        if (openTile_arr[x, z] == 1)
+        if (openTile_arr[x, z] == 1)//arr가 이미 눌려있으면, 0반환
             return 0;
-        else if(openTile_arr[x,z] == 0)
+        else if(openTile_arr[x,z] == 0)//안눌려있으면
         {
-            //Debug.Log("here");
-            for(int i=x-1 ; i<=x+1 ; i++)
+            for(int i=x-1 ; i<=x+1 ; i++)//누른 타일 기준으로 주변 검사
             {
-                if (i < 0 || i > 9)
+                if (i < 0 || i > 9)//overflow, underflow 방지
                     continue;
                 for (int j=z-1; j<=z+1; j++)
                 {
-                    if (j < 0 || j > 9)
+                    if (j < 0 || j > 9)//overflow, underflow 방지
                         continue;
-                    else if (openTile_arr[i, j] == 1)
+                    else if (openTile_arr[i, j] == 1)//주변에 1이 있으면 1반환
                         return 1;
                 }
             }
-            return 2;
+            return 2;//해당 반복문에 필터가 되지 않았으면 움직이기 불가이기 때문에 2반환
         }
-        else
+        else//이 해당 조건이 모두 아니면, 아무것도아니기 때문에 2 반환
             return 2;
     }
 

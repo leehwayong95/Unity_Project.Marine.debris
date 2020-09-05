@@ -48,6 +48,11 @@ public class movePlayer : MonoBehaviour
         targetPosition = target;
     }
 
+    public static void longDistance(Vector3 target)
+    {
+
+    }
+
     public void highlightPlayer()
     {
     }
