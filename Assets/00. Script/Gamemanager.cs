@@ -16,7 +16,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject Cube;
     public GameObject[] trash = new GameObject[5];
     public Material[] hintMaterial = new Material[9];
-    public static int mineCount;
+    public static int mineCount = 0;
     static bool pauseFlag = false;
 
     public static int[,] mine_arr = new int [10,10];//mine배열
@@ -40,6 +40,11 @@ public class Gamemanager : MonoBehaviour
         openTile_arr[5, 4] = 1;
         openTile_arr[5, 5] = 1;
         //testing
+        /*
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+                openTile_arr[i, j] = 1;
+        */
     }
 
     void Update()
@@ -58,6 +63,7 @@ public class Gamemanager : MonoBehaviour
 
     void createMine() //GM이 가지고있는 mine_arr에 마인 구성
     {
+        /* 10%확률 마인 생성기 코드
         for (int i = 0; i< 10; i++)
         {
             for(int j = 0; j<10; j++)
@@ -73,6 +79,22 @@ public class Gamemanager : MonoBehaviour
                 }
                 else
                     mine_arr[i, j] = 0;
+            }
+        }
+        */
+        //testing
+        while (mineCount < 10)
+        {
+            int x, z;
+            x = Random.Range(0, 9);
+            z = Random.Range(0, 9);
+            //X,Z &&연결 부분 OR로 바꾸면 그 행,열 다 빔
+            if ((x >= 3 && x <= 5) && (z >= 3 && z <= 5) || (mine_arr[x, z] == 9)) 
+                continue;//리스폰지역, 이미 마인인 부분 다시 랜덤찍기
+            else//필터 안피해갔으면 마인 지정
+            {
+                mine_arr[x, z] = 9;
+                mineCount++;
             }
         }
     }
