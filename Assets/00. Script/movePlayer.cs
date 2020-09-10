@@ -33,7 +33,7 @@ public class movePlayer : MonoBehaviour
         {
             Debug.Log("pushed button");
             tileControl tile = other.gameObject.GetComponent<tileControl>();
-            tile.setPushed();
+            //tile.setPushed();
         }
     }
 
@@ -46,6 +46,11 @@ public class movePlayer : MonoBehaviour
     {
         moveFlag = true;
         targetPosition = target;
+    }
+
+    public static void longDistance(Vector3 target)
+    {
+
     }
 
     public void highlightPlayer()
