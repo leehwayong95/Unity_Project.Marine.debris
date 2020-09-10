@@ -1387,7 +1387,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &808656395
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1824,7 +1824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1224409677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,7 +2277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1562081713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3017,7 +3017,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7871a073b19220049b7e4a1e4a3ef770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mine: {fileID: 0}
   Plane: {fileID: 4457020569805357408, guid: 012c16c504fa5d14f92d59d3c74211c7, type: 3}
   Cube: {fileID: 7689137381416235114, guid: b48c5cc423446d64faf08871d117e56e, type: 3}
   trash:
