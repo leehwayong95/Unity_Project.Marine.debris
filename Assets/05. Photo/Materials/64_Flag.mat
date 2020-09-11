@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 64_Flag
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 644d4419f6d30214892dd65158332ba7, type: 3}
+  m_ShaderKeywords: _ENABLE_VC_ON _LIGHTING_ON _NORMAL_MAP_ON _USEINTERSECTIONFOAM_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -47,6 +47,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normals:
+        m_Texture: {fileID: 2800000, guid: 6a4951be050ccf74380a80c3b9814cbf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,23 +59,57 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Shadermap:
+        m_Texture: {fileID: 2800000, guid: f720ac3f1e49f45699978d8c704b2c16, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
+    - _Depth: 13
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _ENABLE_VC: 1
+    - _EdgeFade: 0.17
+    - _FoamOpacity: 0.1
+    - _FoamSize: 0
+    - _FoamSpeed: 1
+    - _FoamTiling: 1.1500001
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 1
     - _GlossyReflections: 1
+    - _LIGHTING: 0
     - _Metallic: 0
+    - _Metallicness: 0
     - _Mode: 0
+    - _NORMAL_MAP: 0
+    - _NormalStrength: 0.15
+    - _NormalTiling: 0.79999995
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimSize: 9.5
+    - _Rimfalloff: 3.3
+    - _Rimtiling: 0.56999993
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Transparency: 1
+    - _USE_VC_INTERSECTION: 0
     - _UVSec: 0
+    - _Unlit: 0
+    - _UseIntersectionFoam: 1
+    - _WaveFoam: 0
+    - _WaveHeight: 0.136
+    - _WaveSize: 0.1
+    - _Wavesspeed: 4.29
+    - _Wavetint: -0.5
+    - _Worldspacetiling: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0.509}
+    - _WaterColor: {r: 0.015355106, g: 0.9454451, b: 1.0850961, a: 1}
+    - _WaterShallowColor: {r: 0.41911757, g: 1, b: 0.8798174, a: 1}
+    - _WaveDirection: {r: 0.24, g: 0, b: -0.668, a: 0}

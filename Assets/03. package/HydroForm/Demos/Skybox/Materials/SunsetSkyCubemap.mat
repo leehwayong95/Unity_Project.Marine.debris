@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SunsetSkyCubemap
+  m_Shader: {fileID: 4800000, guid: 644d4419f6d30214892dd65158332ba7, type: 3}
+  m_ShaderKeywords: _ENABLE_VC_ON _LIGHTING_ON _NORMAL_MAP_ON _USEINTERSECTIONFOAM_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Normals:
+        m_Texture: {fileID: 2800000, guid: 6a4951be050ccf74380a80c3b9814cbf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Shadermap:
+        m_Texture: {fileID: 2800000, guid: 46818e57ee31a401bb90298943c9ea81, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 8900000, guid: 30a57b48c4c2cef45ac82af96cc66cf0, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Depth: 13
+    - _ENABLE_VC: 1
+    - _EdgeFade: 0.17
+    - _Exposure: 1
+    - _FoamOpacity: 0.1
+    - _FoamSize: 0
+    - _FoamSpeed: 1
+    - _FoamTiling: 1.1500001
+    - _Glossiness: 1
+    - _LIGHTING: 0
+    - _Metallicness: 0
+    - _NORMAL_MAP: 0
+    - _NormalStrength: 0.15
+    - _NormalTiling: 0.79999995
+    - _RimSize: 9.5
+    - _Rimfalloff: 3.3
+    - _Rimtiling: 0.56999993
+    - _Rotation: 0
+    - _Transparency: 1
+    - _USE_VC_INTERSECTION: 0
+    - _Unlit: 0
+    - _UseIntersectionFoam: 1
+    - _WaveFoam: 0
+    - _WaveHeight: 0.136
+    - _WaveSize: 0.1
+    - _Wavesspeed: 4.29
+    - _Wavetint: -0.5
+    - _Worldspacetiling: 0
+    - __dirty: 1
+    m_Colors:
+    - _RimColor: {r: 1, g: 1, b: 1, a: 0.509}
+    - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+    - _WaterColor: {r: 0.015355106, g: 0.9454451, b: 1.0850961, a: 1}
+    - _WaterShallowColor: {r: 0.41911757, g: 1, b: 0.8798174, a: 1}
+    - _WaveDirection: {r: 0.24, g: 0, b: -0.668, a: 0}

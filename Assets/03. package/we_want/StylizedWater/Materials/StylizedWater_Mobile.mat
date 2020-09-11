@@ -10,7 +10,7 @@ Material:
   m_Name: StylizedWater_Mobile
   m_Shader: {fileID: 4800000, guid: 644d4419f6d30214892dd65158332ba7, type: 3}
   m_ShaderKeywords: _ENABLE_VC_ON _LIGHTING_ON _NORMAL_MAP_ON _USEINTERSECTIONFOAM_ON
-    _WORLDSPACETILIBG_ON
+    _USE_VC_INTERSECTION_ON _WORLDSPACETILIBG_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,7 +24,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DummyTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -58,7 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Cutoff: 0.5
-    - _Depth: 13
+    - _Depth: 13.1
     - _Depthdarkness: 0
     - _ENABLE_GRADIENT: 0
     - _ENABLE_SHADOWS: 0
@@ -75,9 +83,9 @@ Material:
     - _LIGHTING: 1
     - _MACRO_WAVES: 0
     - _MacroBlendDistance: 1000
-    - _Metallicness: 0
+    - _Metallicness: 0.406
     - _NORMAL_MAP: 1
-    - _NormalStrength: 0.15
+    - _NormalStrength: 0.582
     - _NormalTiling: 0.79999995
     - _Pixelate: 0
     - _RT_REFRACTION: 0
@@ -87,9 +95,9 @@ Material:
     - _RefractionAmount: 0.049
     - _RimDistance: 0.899
     - _RimDistortion: 0.484
-    - _RimSize: 9.5
-    - _Rimfalloff: 3.3
-    - _Rimtiling: 0.56999993
+    - _RimSize: 1
+    - _Rimfalloff: 0.1
+    - _Rimtiling: 20
     - _SECONDARY_WAVES: 0
     - _SurfaceHighlight: 0.03
     - _SurfaceHighlightsDistortion: 0.45
@@ -99,21 +107,22 @@ Material:
     - _Tessellation: 0.01
     - _Tiling: 0.955
     - _Transparency: 1
-    - _USE_VC_INTERSECTION: 0
+    - _USE_VC_INTERSECTION: 1
     - _Unlit: 0
     - _UseIntersectionFoam: 1
     - _UseIntersectionHighlight: 0
     - _WaveFoam: 0
-    - _WaveHeight: 0.537
-    - _WaveSize: 0.1
-    - _Wavesspeed: 4.29
+    - _WaveHeight: 0.108
+    - _WaveSize: 0.14
+    - _Wavesspeed: 4.38
     - _Wavesstrength: 0.031
-    - _Wavetint: -0.5
+    - _Wavetint: -0.407
     - _Worldspacetiling: 0
     - __dirty: 1
     m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 0.2924528, g: 0.28750557, b: 0.05380029, a: 0.084}
     - _RimColor: {r: 1, g: 1, b: 1, a: 0.509}
-    - _WaterColor: {r: 0.015355106, g: 0.9454451, b: 1.0850961, a: 1}
-    - _WaterShallowColor: {r: 0.41911757, g: 1, b: 0.8798174, a: 1}
-    - _WaveDirection: {r: 0.24, g: 0, b: -0.668, a: 0}
+    - _WaterColor: {r: 0.23051403, g: 0.3951669, b: 0.68788314, a: 1}
+    - _WaterShallowColor: {r: 0, g: 0.7689951, b: 0.9811321, a: 1}
+    - _WaveDirection: {r: -0.39, g: 0, b: 0.41, a: 0}
